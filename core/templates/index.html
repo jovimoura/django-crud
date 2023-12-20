@@ -1,0 +1,13 @@
+<h1>Peoples:</h1>
+
+<ul>
+  {% for people in peoples%}
+    <li>{{ people.id }} - {{ people.name }}<a href="{% url "edit" people.id %}"> Edit </a> <a href="{% url "delete" people.id %}"> Delete </a> </li>
+  {% endfor %}
+
+  <form action="{% url 'save' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="name">
+    <button type="submit">Salvar</button>
+  </form>
+</ul>

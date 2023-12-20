@@ -1,0 +1,7 @@
+{{ people.id }} - {{ people.name }}
+
+<form action="{% url 'update' people.id %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="name" value="{{ people.name }}">
+  <button type="submit">Update</button>
+</form>
